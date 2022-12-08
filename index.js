@@ -48,7 +48,7 @@ function copyPw1() {
     snackbarEl.className = "show"
     setTimeout(function(){ snackbarEl.className = snackbarEl.className.replace("show", ""); }, 1500);
     
-    console.log("Copied 👍")
+    console.log("Copied 👍" + copiedTxt1)
 }
 
 function copyPw2() {
@@ -58,7 +58,7 @@ function copyPw2() {
     snackbarEl.className = "show"
     setTimeout(function(){ snackbarEl.className = snackbarEl.className.replace("show", ""); }, 1500);
 
-    console.log("Copied 👍")
+    console.log("Copied 👍" + copiedTxt2)
     
 }
 
