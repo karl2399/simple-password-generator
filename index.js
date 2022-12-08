@@ -52,12 +52,12 @@ function copyPw1() {
 }
 
 function copyPw2() {
-    let copiedTxt2 = pw1El.textContent
+    let copiedTxt2 = pw2El.textContent
     navigator.clipboard.writeText(copiedTxt2)
     let snackbarEl = document.getElementById("snackbar");
     snackbarEl.className = "show"
     setTimeout(function(){ snackbarEl.className = snackbarEl.className.replace("show", ""); }, 1500);
-    
+
     console.log("Copied 👍")
     
 }
