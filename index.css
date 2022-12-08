@@ -39,7 +39,7 @@ h2 {
 button {
   width: 300px;
   height: 60px;
-  background-color: #2cb67d;
+  background-color: #7f5af0;
   padding: 12px;
   color: #fffffe;
   border-radius: 8px;
@@ -55,7 +55,7 @@ button {
   font-size: 24px;
 }
 .generate-passwords:hover {
-  background: #45d398;
+  background: #8763f3;
 }
 
 #pw1 {
