@@ -1,0 +1,34 @@
+<html>
+  <head>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;800&display=swap");
+    </style>
+    <link rel="stylesheet" href="index.css" />
+    <title>Simple Password Generator</title>
+  </head>
+  <body>
+    <div id="container">
+      <div id="main">
+        <h1>Generate a <br /><span>random password</span></h1>
+        <h2>Never use an insecure password again.</h2>
+      </div>
+      <div>
+        <div>
+          <button id="pw1" onclick="copyPw1()"></button>
+        </div>
+        <div>
+          <button id="pw2" onclick="copyPw2()"></button>
+        </div>
+      </div>
+
+      <div>
+        <button class="generate-passwords" onclick="generatePasswords()">
+          Generate
+        </button>
+      </div>
+    </div>
+
+    <div id="snackbar">Copied to Clipboard! 📝</div>
+    <script src="index.js"></script>
+  </body>
+</html>
