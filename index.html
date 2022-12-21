@@ -13,17 +13,66 @@
         <h2>Never use an insecure password again.</h2>
       </div>
       <div>
-        <div>
-          <button id="pw1" onclick="copyPw1()"></button>
+        <div class="tooltip">
+          <button
+            id="password-output"
+            onclick="copyContent()"
+            onmouseout="outFunc()"
+          ></button>
+          <span class="tooltiptext" id="copyTooltip">Copy to clipboard</span>
         </div>
-        <div>
-          <button id="pw2" onclick="copyPw2()"></button>
+      </div>
+      <div id="checkboxWrapper" bis_skin_checked="1">
+        <label class="container"
+          >Lower Case Characters
+          <input
+            id="lowerCaseCharacterCheck"
+            type="checkbox"
+            checked="checked"
+          />
+          <span class="checkmark"></span>
+        </label>
+        <label class="container"
+          >Upper Case Characters
+          <input id="upperCaseCharacterCheck" type="checkbox" />
+          <span class="checkmark"></span>
+        </label>
+        <label class="container"
+          >Numbers
+          <input id="numberCharacterCheck" type="checkbox" />
+          <span class="checkmark"></span>
+        </label>
+        <label class="container"
+          >Special Characters
+          <input id="specialCharacterCheck" type="checkbox" />
+          <span class="checkmark"></span>
+        </label>
+      </div>
+
+      <div id="input-range-wrapper" bis_skin_checked="1">
+        <label class="customText">Password Length</label><br />
+        <div class="range" bis_skin_checked="1">
+          <div class="sliderValue" bis_skin_checked="1">
+            <span id="slideShow" class="" style="left: 62.4%">13</span>
+          </div>
+          <div class="field" bis_skin_checked="1">
+            <div class="value left" bis_skin_checked="1">8</div>
+            <input
+              type="range"
+              min="8"
+              max="32"
+              value="8"
+              steps="1"
+              id="rangeInput"
+            />
+            <div class="value right" bis_skin_checked="1">32</div>
+          </div>
         </div>
       </div>
 
       <div>
-        <button class="generate-passwords" onclick="generatePasswords()">
-          Generate
+        <button class="btn" id="generate-btn" onclick="newPassword()">
+          New Password
         </button>
       </div>
     </div>

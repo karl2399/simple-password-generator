@@ -1,64 +1,260 @@
-const characters = [0,1,2,3,4,5,6,7,8,9,"A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z","a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9","~","`","!","@","#","$","%","^","&","*","(",")","_","-","+","=","{","[","}","]",",","|",":",";","<",">",".","?",
-"/"];
+let characters = [];
 
-let pw1El = document.getElementById("pw1")
+const upperCaseCharacters = [
+  "A",
+  "B",
+  "C",
+  "D",
+  "E",
+  "F",
+  "G",
+  "H",
+  "I",
+  "J",
+  "K",
+  "L",
+  "M",
+  "N",
+  "O",
+  "P",
+  "Q",
+  "R",
+  "S",
+  "T",
+  "U",
+  "V",
+  "W",
+  "X",
+  "Y",
+  "Z",
+];
+const lowerCaseCharacters = [
+  "a",
+  "b",
+  "c",
+  "d",
+  "e",
+  "f",
+  "g",
+  "h",
+  "i",
+  "j",
+  "k",
+  "l",
+  "m",
+  "n",
+  "o",
+  "p",
+  "q",
+  "r",
+  "s",
+  "t",
+  "u",
+  "v",
+  "w",
+  "x",
+  "y",
+  "z",
+];
+const numberCharacters = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
+const specialCharacters = [
+  "~",
+  "`",
+  "!",
+  "@",
+  "#",
+  "$",
+  "%",
+  "^",
+  "&",
+  "*",
+  "(",
+  ")",
+  "_",
+  "-",
+  "+",
+  "=",
+  "{",
+  "[",
+  "}",
+  "]",
+  ",",
+  "|",
+  ":",
+  ";",
+  "<",
+  ">",
+  ".",
+  "?",
+  "/",
+];
 
-let pw2El = document.getElementById("pw2")
+//INPUT RANGE
+const slideValue = document.querySelector("#slideShow");
+const inputSlider = document.querySelector("#rangeInput");
+let inputValue = 0;
+inputSlider.oninput = () => {
+  inputValue = inputSlider.value;
+  slideValue.textContent = inputValue;
+  slideValue.style.left = inputValue * 4.8 + "%";
+  slideValue.classList.add("show");
+};
+inputSlider.onblur = () => {
+  slideValue.classList.remove("show");
+};
 
-for (let i = 0; i < 15; i++) {
-    pw1El.textContent += characters[Math.floor(Math.random()*characters.length)]
+let password = document.getElementById("password-output");
+let passwordArray = [];
+let lowerCaseCheck = document.querySelector("#lowerCaseCharacterCheck");
+let upperCaseCheck = document.querySelector("#upperCaseCharacterCheck");
+let numberCheck = document.querySelector("#numberCharacterCheck");
+let specialCheck = document.querySelector("#specialCharacterCheck");
+let tooltipOfCopy = document.querySelector("#copyTooltip");
+
+function newPassword() {
+  clearPassword();
+  formCharacters();
+  do {
+    generatePassword();
+  } while (isStrong() == false);
 }
 
-for (let i = 0; i < 15; i++) {
-    pw2El.textContent += characters[Math.floor(Math.random()*characters.length)]
-}
-// console.log(pw1El)
-// console.log(pw2El)
-// get characters 15 times using for loops
-// insert it to pw1
-
-// get characters 15 times using for loops
-// insert it to pw2
-
-function generatePasswords() {
-    // toolTipEl.textContent = "Copy 📝"
-    pw1El.textContent = ""
-    pw2El.textContent = ""
-   getPw1()
-   getPw2()
-   console.log("generating passwords...")
+function clearPassword() {
+  passwordArray = [];
+  password.textContent = "";
+  characters = [];
 }
 
-function getPw1() {
-    for (let i = 0; i < 15; i++) {
-        pw1El.textContent += characters[Math.floor(Math.random()*characters.length)]
+function formCharacters() {
+  // the .concat() function adds an array onto another array
+
+  if (lowerCaseCheck.checked == true) {
+    characters = characters.concat(lowerCaseCharacters);
+  }
+  if (upperCaseCheck.checked == true) {
+    characters = characters.concat(upperCaseCharacters);
+  }
+  if (numberCheck.checked == true) {
+    characters = characters.concat(numberCharacters);
+  }
+  if (specialCheck.checked == true) {
+    characters = characters.concat(specialCharacters);
+  }
+}
+
+//generate the number of characters the password has
+function generatePassword() {
+  for (let i = 0; i < inputValue; i++) {
+    let randomNumber = Math.floor(Math.random() * characters.length);
+    passwordArray[i] = characters[randomNumber];
+  }
+  // .join() removes the commas that separate array values and
+  // replaces them with something instead. Even if that something is a nothing.
+  password.textContent = passwordArray.join("");
+}
+
+function isStrong() {
+  if (
+    includeUpperCaseCharacter() == true &&
+    includeLowerCaseCharacter() == true &&
+    includeNumberCharacter() == true &&
+    includeSpecialCharacter() == true
+  ) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+function includeLowerCaseCharacter() {
+  if (lowerCaseCheck.checked == false) {
+    for (let i = 0; i < lowerCaseCharacters.length; i++) {
+      let checker = password.textContent.includes(lowerCaseCharacters[i]);
+      if (checker == true) {
+        return false;
+      }
     }
-}
-
-function getPw2() {
-    for (let i = 0; i < 15; i++) {
-        pw2El.textContent += characters[Math.floor(Math.random()*characters.length)]
+    return true;
+  } else {
+    for (let i = 0; i < lowerCaseCharacters.length; i++) {
+      let checker = password.textContent.includes(lowerCaseCharacters[i]);
+      if (checker == true) {
+        return true;
+      }
     }
+    return false;
+  }
 }
 
-function copyPw1() {
-    let copiedTxt1 = pw1El.textContent
-    navigator.clipboard.writeText(copiedTxt1)
-    let snackbarEl = document.getElementById("snackbar");
-    snackbarEl.className = "show"
-    setTimeout(function(){ snackbarEl.className = snackbarEl.className.replace("show", ""); }, 1500);
-    
-    console.log(copiedTxt1)
+function includeUpperCaseCharacter() {
+  if (upperCaseCheck.checked == false) {
+    for (let i = 0; i < upperCaseCharacters.length; i++) {
+      let checker = password.textContent.includes(upperCaseCharacters[i]);
+      if (checker == true) {
+        return false;
+      }
+    }
+    return true;
+  } else {
+    for (let i = 0; i < upperCaseCharacters.length; i++) {
+      let checker = password.textContent.includes(upperCaseCharacters[i]);
+      if (checker == true) {
+        return true;
+      }
+    }
+    return false;
+  }
 }
 
-function copyPw2() {
-    let copiedTxt2 = pw2El.textContent
-    navigator.clipboard.writeText(copiedTxt2)
-    let snackbarEl = document.getElementById("snackbar");
-    snackbarEl.className = "show"
-    setTimeout(function(){ snackbarEl.className = snackbarEl.className.replace("show", ""); }, 1500);
-
-    console.log(copiedTxt2)
-    
+function includeNumberCharacter() {
+  if (numberCheck.checked == false) {
+    for (let i = 0; i < numberCharacters.length; i++) {
+      let checker = password.textContent.includes(numberCharacters[i]);
+      if (checker == true) {
+        return false;
+      }
+    }
+    return true;
+  } else {
+    for (let i = 0; i < numberCharacters.length; i++) {
+      let checker = password.textContent.includes(numberCharacters[i]);
+      if (checker == true) {
+        return true;
+      }
+    }
+    return false;
+  }
 }
 
+function includeSpecialCharacter() {
+  if (specialCheck.checked == false) {
+    for (let i = 0; i < specialCharacters.length; i++) {
+      let checker = password.textContent.includes(specialCharacters[i]);
+      if (checker == true) {
+        return false;
+      }
+    }
+    return true;
+  } else {
+    for (let i = 0; i < specialCharacters.length; i++) {
+      let checker = password.textContent.includes(specialCharacters[i]);
+      if (checker == true) {
+        return true;
+      }
+    }
+    return false;
+  }
+}
+
+function copyContent() {
+  navigator.clipboard.writeText(password.textContent);
+  if (password.textContent == "") {
+    tooltipOfCopy.textContent = "Create a new password first";
+  } else {
+    tooltipOfCopy.textContent = password.textContent;
+  }
+}
+
+function outFunc() {
+  tooltipOfCopy.innerHTML = "Copy";
+}
