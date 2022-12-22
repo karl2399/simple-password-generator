@@ -92,7 +92,7 @@ const specialCharacters = [
 //INPUT RANGE
 const slideValue = document.querySelector("#slideShow");
 const inputSlider = document.querySelector("#rangeInput");
-let inputValue = 0;
+let inputValue = 8;
 inputSlider.oninput = () => {
   inputValue = inputSlider.value;
   slideValue.textContent = inputValue;
