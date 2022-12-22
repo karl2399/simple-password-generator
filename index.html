@@ -3,54 +3,35 @@
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;800&display=swap");
     </style>
-    <link rel="stylesheet" href="index.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <link rel="stylesheet" href="/styles/index.css" />
     <title>Simple Password Generator</title>
   </head>
   <body>
     <div id="container">
-      <div id="main">
-        <h1>Generate a <br /><span>random password</span></h1>
-        <h2>Never use an insecure password again.</h2>
-      </div>
+      <header>
+        <h1>
+          Password Generator <i class="fa fa-lock" aria-hidden="true"></i>
+        </h1>
+      </header>
       <div>
         <div class="tooltip">
-          <button
-            id="password-output"
-            onclick="copyContent()"
-            onmouseout="outFunc()"
-          ></button>
-          <span class="tooltiptext" id="copyTooltip">Copy to clipboard</span>
+          <button id="password-output" onclick="copyContent()"></button>
         </div>
       </div>
-      <div id="checkboxWrapper" bis_skin_checked="1">
-        <label class="container"
-          >Lower Case Characters
-          <input
-            id="lowerCaseCharacterCheck"
-            type="checkbox"
-            checked="checked"
-          />
-          <span class="checkmark"></span>
-        </label>
-        <label class="container"
-          >Upper Case Characters
-          <input id="upperCaseCharacterCheck" type="checkbox" />
-          <span class="checkmark"></span>
-        </label>
-        <label class="container"
-          >Numbers
-          <input id="numberCharacterCheck" type="checkbox" />
-          <span class="checkmark"></span>
-        </label>
-        <label class="container"
-          >Special Characters
-          <input id="specialCharacterCheck" type="checkbox" />
-          <span class="checkmark"></span>
-        </label>
+      <div>
+        <button class="btn" id="generate-btn" onclick="newPassword()">
+          New Password
+        </button>
       </div>
 
+      <hr />
+
       <div id="input-range-wrapper" bis_skin_checked="1">
-        <label class="customText">Password Length</label><br />
+        <label class="custom-text">Password Length</label><br />
         <div class="range" bis_skin_checked="1">
           <div class="sliderValue" bis_skin_checked="1">
             <span id="slideShow" class="" style="left: 62.4%">13</span>
@@ -70,14 +51,37 @@
         </div>
       </div>
 
-      <div>
-        <button class="btn" id="generate-btn" onclick="newPassword()">
-          New Password
-        </button>
+      <div id="checkbox-wrapper" bis_skin_checked="1">
+        <label class="checkbox"
+          >Lower Case Characters
+          <input
+            id="lowerCaseCharacterCheck"
+            type="checkbox"
+            checked="checked"
+          />
+          <span class="checkmark"></span>
+        </label>
+        <label class="checkbox"
+          >Upper Case Characters
+          <input id="upperCaseCharacterCheck" type="checkbox" />
+          <span class="checkmark"></span>
+        </label>
+        <label class="checkbox"
+          >Numbers
+          <input id="numberCharacterCheck" type="checkbox" />
+          <span class="checkmark"></span>
+        </label>
+        <label class="checkbox"
+          >Special Characters
+          <input id="specialCharacterCheck" type="checkbox" />
+          <span class="checkmark"></span>
+        </label>
       </div>
     </div>
-
     <div id="snackbar">Copied to Clipboard! 📝</div>
+    <footer>
+      <h1><i class="fa fa-github"></i></h1>
+    </footer>
     <script src="index.js"></script>
   </body>
 </html>

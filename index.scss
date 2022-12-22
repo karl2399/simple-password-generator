@@ -1,42 +1,99 @@
 body {
-  background: #72757e;
+  background-color: white;
   font-family: Poppins, sans-serif;
-  margin: 40px;
+  height: 560px;
+}
+
+/* .body {
+  
+  position: absolute;
+  left: 3216px;
+  top: 1380px;
+  width: 1200px;
+  height: 2393px;
+  
+} */
+// main wrapper
+#container {
+  background: #efefef;
+  margin-left: auto;
+  margin-right: auto;
+  /* border-radius: 24px; */
+  /* padding: 2rem 3rem 2.5rem; */
+  min-width: 75px;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  text-align: center;
-  display: flex;
+  z-index: -1;
 }
 
-#container {
-  background: #16161a;
-  margin: auto;
-  margin-top: 10vh;
-  border-radius: 24px;
-  padding: 2rem 3rem 2.5rem;
-  min-width: 310px;
+header {
+  background-color: white;
+  width: 100%;
 }
 
-h1 {
+header > h1 {
   text-align: left;
-  font-weight: 700;
-  color: #fffffe;
-  line-height: 35px;
+  font-weight: 800;
+  color: #615d8f;
+  text-align: center;
   margin: 0;
 }
 
-span {
-  color: #7f5af0;
+// password result
+#password-output {
+  background-color: white;
+  color: #2f2f2f;
+  border: none;
+  border-radius: 8px;
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 1em;
+  font-weight: 700;
+  padding: 1.25em;
+  margin-top: 10%;
+  margin-left: auto;
+  margin-right: auto;
+  width: 350px;
+  max-width: 350px;
 }
 
-h2 {
+#password-output:hover {
+  background-color: #2f2f2f;
+  color: white;
+}
+
+// generate password button
+.btn {
+  color: white;
+  background-color: #615d8f;
+  align-items: left;
+  border: none;
+  font-size: 1em;
+  font-weight: 700;
+  border-radius: 8px;
+  padding: 1em 1.5em;
+  margin-block: 10%;
+}
+.btn:hover {
+  background: #8763f3;
+}
+
+// horizontal line
+hr {
+  border: 1px solid #615d8f;
+  width: 350px;
+}
+
+/* h2 {
   text-align: left;
   font-weight: 400;
   color: #94a1b2;
   font-size: 80%;
-}
+} */
 
-button {
+/* button {
   width: 300px;
   height: 60px;
   background-color: #7f5af0;
@@ -48,36 +105,18 @@ button {
   text-decoration: none;
   border-width: 3px;
   cursor: pointer;
-}
-.generate-passwords {
-  align-items: left;
-  border: none;
-  font-size: 24px;
-}
-.generate-passwords:hover {
-  background: #8763f3;
+} */
+.custom-text {
+  font-weight: 700;
 }
 
-#pw1 {
-  border-color: #010101;
-  background-color: #16161a;
-  margin-bottom: 10px;
+// password length slider
+#input-range-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
 }
-
-#pw1:hover {
-  background-color: #7f5af0;
-}
-
-#pw2 {
-  border-color: #010101;
-  background-color: #16161a;
-  margin-bottom: 35px;
-}
-
-#pw2:hover {
-  background-color: #7f5af0;
-}
-
 .container .checkmark:after {
   left: 3px;
   top: 0;
@@ -92,10 +131,10 @@ button {
 
 .range {
   margin: 0 0 0 30px;
-  background: #4adf86;
+  background: #615d8f;
   height: 30px;
   width: 80px;
-  background: #2f3e53;
+  background: white;
   border-radius: 15px;
   padding: 0 65px 0 45px;
   text-align: center;
@@ -112,17 +151,17 @@ button {
   position: absolute;
   height: 35px;
   width: 35px;
-  transform: translateX(-70%) scale(0);
+  transform: translateX(-150%) scale(0);
   top: -50px;
   line-height: 40px;
   z-index: 2;
-  color: #4adf86;
+  color: #615d8f;
   transform-origin: bottom;
   transition: transform 0.3s ease-in-out;
 }
 
 .sliderValue span.show {
-  transform: translateX(-70%) scale(1);
+  transform: translateX(-90%) scale(1);
 }
 
 .sliderValue span:after {
@@ -130,8 +169,8 @@ button {
   content: "";
   height: 100%;
   width: 100%;
-  background: #2f3e53;
-  border: 3px solid #4adf86;
+  background: white;
+  border: 3px solid #615d8f;
   z-index: -1;
   left: 50%;
   /* position of pop-up number case in relation to the ball */
@@ -152,8 +191,8 @@ button {
 .field .value {
   position: absolute;
   font-size: 15px;
-  color: #4adf86;
-  font-weight: 600;
+  color: #615d8f;
+  font-weight: 700;
 }
 
 .field .value.left {
@@ -161,14 +200,14 @@ button {
 }
 
 .field .value.right {
-  right: -43px;
+  right: -30px;
 }
 
 .range input {
   -webkit-appearance: none;
   width: 100%;
   height: 3px;
-  background: #4adf86;
+  background: #615d8f;
   border-radius: 5px;
   outline: none;
   border: none;
@@ -179,9 +218,9 @@ button {
   -webkit-appearance: none;
   width: 15px;
   height: 15px;
-  border-radius: 50%;
-  background: #2f3e53;
-  border: 2px solid #4adf86;
+  border-radius: 8px;
+  background: white;
+  border: 2px solid #615d8f;
   cursor: pointer;
 }
 
@@ -198,6 +237,36 @@ button {
 .range input::-moz-range-progress {
   background: #4adf86;
   /* this progress background is only shown on Firefox */
+}
+
+#checkbox-wrapper {
+  display: flex;
+  flex-direction: column;
+  font-weight: 700;
+  color: #2f3e53;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+#checkbox-wrapper > label {
+  margin: 8px 0;
+}
+
+//footer
+footer {
+  height: 40px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  font-size: 1.5rem;
+  background-color: #161619;
+}
+
+footer > h1 {
+  color: #918e9b;
+  width: 100px;
+  height: 100px;
+  z-index: 100;
 }
 
 #snackbar {
@@ -224,6 +293,13 @@ button {
 }
 
 /* Animations to fade the snackbar in and out */
+
+@keyframes check {
+  100% {
+    stroke-dashoffset: 4.5px;
+  }
+}
+
 @-webkit-keyframes fadein {
   from {
     bottom: 0;

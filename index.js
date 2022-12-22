@@ -109,7 +109,6 @@ let lowerCaseCheck = document.querySelector("#lowerCaseCharacterCheck");
 let upperCaseCheck = document.querySelector("#upperCaseCharacterCheck");
 let numberCheck = document.querySelector("#numberCharacterCheck");
 let specialCheck = document.querySelector("#specialCharacterCheck");
-let tooltipOfCopy = document.querySelector("#copyTooltip");
 
 function newPassword() {
   clearPassword();
@@ -248,13 +247,15 @@ function includeSpecialCharacter() {
 
 function copyContent() {
   navigator.clipboard.writeText(password.textContent);
-  if (password.textContent == "") {
-    tooltipOfCopy.textContent = "Create a new password first";
-  } else {
-    tooltipOfCopy.textContent = password.textContent;
-  }
-}
-
-function outFunc() {
-  tooltipOfCopy.innerHTML = "Copy";
+  console.log("text copied");
+  snackbarEl = document.getElementById("snackbar");
+  snackbarEl.className = "show";
+  setTimeout(function () {
+    snackbarEl.className = snackbarEl.className.replace("show", "");
+  }, 3000);
+  // if (password.textContent == "") {
+  //   tooltipOfCopy.textContent = "Create a new password first";
+  // } else {
+  //   tooltipOfCopy.textContent = password.textContent;
+  // }
 }
