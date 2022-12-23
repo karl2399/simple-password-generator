@@ -99,25 +99,6 @@ hr {
   width: 350px;
 }
 
-/* h2 {
-  text-align: left;
-  font-weight: 400;
-  color: #94a1b2;
-  font-size: 80%;
-} */
-/* button {
-  width: 300px;
-  height: 60px;
-  background-color: #7f5af0;
-  padding: 12px;
-  color: #fffffe;
-  border-radius: 8px;
-  font-size: 24px;
-  font-weight: 700;
-  text-decoration: none;
-  border-width: 3px;
-  cursor: pointer;
-} */
 .custom-text {
   font-weight: 700;
 }
@@ -186,36 +167,27 @@ hr {
 }
 
 #bubble {
-  position: absolute;
-  top: 280px;
-  height: 30px;
-  width: 30px;
-  margin-left: 100px;
-  line-height: 40px;
-  z-index: 2;
-  color: #615d8f;
-  transform-origin: center;
-  transition: transform 0.3s ease-in-out;
+  display: inline-block;
+  position: relative;
+  width: 60px;
+  color: #fff;
+  line-height: 20px;
+  text-align: center;
+  border-radius: 3px;
+  background: #2c3e50;
+  padding: 5px 10px;
+  margin-left: 8px;
 }
-
-#bubble.show {
-  transform: translateX(0);
-}
-
-#bubble::after {
+#bubble:after {
   position: absolute;
+  top: 8px;
+  left: -7px;
+  width: 0;
+  height: 0;
+  border-top: 7px solid transparent;
+  border-right: 7px solid #2c3e50;
+  border-bottom: 7px solid transparent;
   content: "";
-  height: 100%;
-  width: 100%;
-  background: white;
-  border: 3px solid #615d8f;
-  z-index: -1;
-  left: 50%;
-  /* position of pop-up number case in relation to the ball */
-  transform: translateX(-50%) rotate(45deg);
-  border-bottom-left-radius: 50%;
-  border-top-left-radius: 50%;
-  border-top-right-radius: 50%;
 }
 
 #checkbox-wrapper {

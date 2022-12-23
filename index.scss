@@ -1,3 +1,22 @@
+// Base Colors
+$shade-10: #2c3e50 !default;
+$shade-1: #d7dcdf !default;
+$shade-0: #fff !default;
+$teal: #1abc9c !default;
+
+// Range Slider
+$range-width: 100% !default;
+
+$range-handle-color: $shade-10 !default;
+$range-handle-color-hover: $teal !default;
+$range-handle-size: 20px !default;
+
+$range-track-color: $shade-1 !default;
+$range-track-height: 10px !default;
+
+$range-label-color: $shade-10 !default;
+$range-label-width: 60px !default;
+
 html {
   display: flex;
   justify-content: center;
@@ -177,38 +196,28 @@ hr {
 }
 
 #bubble {
-  position: absolute;
-  top: 280px;
-  height: 30px;
-  width: 30px;
-  margin-left: 100px;
-  // transform: translateX(-150%) scale(0);
+  display: inline-block;
+  position: relative;
+  width: $range-label-width;
+  color: $shade-0;
+  line-height: 20px;
+  text-align: center;
+  border-radius: 3px;
+  background: $range-label-color;
+  padding: 5px 10px;
+  margin-left: 8px;
 
-  line-height: 40px;
-  z-index: 2;
-  color: #615d8f;
-  transform-origin: center;
-  transition: transform 0.3s ease-in-out;
-}
-
-#bubble.show {
-  transform: translateX(0);
-}
-
-#bubble::after {
-  position: absolute;
-  content: "";
-  height: 100%;
-  width: 100%;
-  background: white;
-  border: 3px solid #615d8f;
-  z-index: -1;
-  left: 50%;
-  /* position of pop-up number case in relation to the ball */
-  transform: translateX(-50%) rotate(45deg);
-  border-bottom-left-radius: 50%;
-  border-top-left-radius: 50%;
-  border-top-right-radius: 50%;
+  &:after {
+    position: absolute;
+    top: 8px;
+    left: -7px;
+    width: 0;
+    height: 0;
+    border-top: 7px solid transparent;
+    border-right: 7px solid $range-label-color;
+    border-bottom: 7px solid transparent;
+    content: "";
+  }
 }
 
 #checkbox-wrapper {

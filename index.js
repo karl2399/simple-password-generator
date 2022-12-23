@@ -97,7 +97,7 @@ let inputValue = inputSlider.value;
 inputSlider.oninput = () => {
   inputValue = inputSlider.value;
   bubble.textContent = inputValue;
-  bubble.style.left = ((inputValue - 8) * 100) / (32 - 8) + "%";
+  // bubble.style.left = ((inputValue - 8) * 100) / (32 - 8) + "%";
   bubble.classList.add("show");
 };
 // inputSlider.onblur = () => {
