@@ -1,5 +1,9 @@
+<!DOCTYPE html>
 <html>
   <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script
       src="https://kit.fontawesome.com/debfe1e3b7.js"
       crossorigin="anonymous"
@@ -34,35 +38,20 @@
 
       <hr />
 
-      <div id="input-range-wrapper" bis_skin_checked="1">
+      <div id="input-range-wrapper">
         <label class="custom-text">Password Length</label><br />
-        <div class="range" bis_skin_checked="1">
-          <div class="sliderValue" bis_skin_checked="1">
-            <span id="slideShow" class="" style="left: 62.4%">13</span>
-          </div>
-          <div class="field" bis_skin_checked="1">
-            <div class="value left" bis_skin_checked="1">8</div>
-            <input
-              type="range"
-              min="8"
-              max="32"
-              value="8"
-              steps="1"
-              id="rangeInput"
-            />
-            <div class="value right" bis_skin_checked="1">32</div>
-          </div>
+        <div class="range">
+          <input type="range" id="rangeInput" min="8" max="32" value="8" />
+          <label for="rangeInput" id="bubble" class="" style="left: 0%" step="1"
+            >8</label
+          >
         </div>
       </div>
 
-      <div id="checkbox-wrapper" bis_skin_checked="1">
+      <div id="checkbox-wrapper">
         <label class="checkbox"
           >Lower Case Characters
-          <input
-            id="lowerCaseCharacterCheck"
-            type="checkbox"
-            checked="checked"
-          />
+          <input id="lowerCaseCharacterCheck" type="checkbox" />
           <span class="checkmark"></span>
         </label>
         <label class="checkbox"
@@ -82,7 +71,8 @@
         </label>
       </div>
     </div>
-    <div id="snackbar">Copied to Clipboard! 📝</div>
+    <div id="snackbar">📝 Copied to clipboard!</div>
+    <div id="snackbar2">🛑 Check at least one checkbox.</div>
     <div class="footer">
       <i class="fa fa-github-square fa-2xl"></i>
     </div>

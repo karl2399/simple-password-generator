@@ -90,18 +90,19 @@ const specialCharacters = [
 ];
 
 //INPUT RANGE
-const slideValue = document.querySelector("#slideShow");
+const bubble = document.querySelector("#bubble");
 const inputSlider = document.querySelector("#rangeInput");
-let inputValue = 8;
+let inputValue = inputSlider.value;
+
 inputSlider.oninput = () => {
   inputValue = inputSlider.value;
-  slideValue.textContent = inputValue;
-  slideValue.style.left = inputValue * 4.8 + "%";
-  slideValue.classList.add("show");
+  bubble.textContent = inputValue;
+  bubble.style.left = ((inputValue - 8) * 100) / (32 - 8) + "%";
+  bubble.classList.add("show");
 };
-inputSlider.onblur = () => {
-  slideValue.classList.remove("show");
-};
+// inputSlider.onblur = () => {
+//   bubble.classList.remove("show");
+// };
 
 let password = document.getElementById("password-output");
 let passwordArray = [];
@@ -109,13 +110,28 @@ let lowerCaseCheck = document.querySelector("#lowerCaseCharacterCheck");
 let upperCaseCheck = document.querySelector("#upperCaseCharacterCheck");
 let numberCheck = document.querySelector("#numberCharacterCheck");
 let specialCheck = document.querySelector("#specialCharacterCheck");
+const generateBtn = document.getElementById("generate-btn");
+
+// Get a list of all checkbox elements
+let checkboxes = document.querySelectorAll("input[type='checkbox']");
+// console.log(checkboxes);
+
+// Initialize a flag to track whether all checkboxes are unchecked
+let allUnchecked = true;
+
+// If the flag is still true, it means all checkboxes are unchecked, so disable the button
+// if (allUnchecked) {
+//   generateBtn.disabled = true;
+// }
 
 function newPassword() {
+  // checkCheckbox();
   clearPassword();
   formCharacters();
   do {
     generatePassword();
   } while (isStrong() == false);
+  console.log(generateBtn.disabled);
 }
 
 function clearPassword() {
@@ -253,9 +269,79 @@ function copyContent() {
   setTimeout(function () {
     snackbarEl.className = snackbarEl.className.replace("show", "");
   }, 3000);
-  // if (password.textContent == "") {
-  //   tooltipOfCopy.textContent = "Create a new password first";
-  // } else {
-  //   tooltipOfCopy.textContent = password.textContent;
-  // }
 }
+
+lowerCaseCheck.addEventListener("change", function () {
+  if (
+    lowerCaseCheck.checked ||
+    upperCaseCheck.checked ||
+    numberCheck.checked ||
+    specialCheck.checked
+  ) {
+    allUnchecked = false;
+    generateBtn.disabled = false;
+  } else {
+    generateBtn.disabled = true;
+  }
+});
+
+upperCaseCheck.addEventListener("change", function () {
+  if (
+    lowerCaseCheck.checked ||
+    upperCaseCheck.checked ||
+    numberCheck.checked ||
+    specialCheck.checked
+  ) {
+    allUnchecked = false;
+    generateBtn.disabled = false;
+  } else {
+    generateBtn.disabled = true;
+  }
+});
+
+numberCheck.addEventListener("change", function () {
+  if (
+    lowerCaseCheck.checked ||
+    upperCaseCheck.checked ||
+    numberCheck.checked ||
+    specialCheck.checked
+  ) {
+    allUnchecked = false;
+    generateBtn.disabled = false;
+  } else {
+    generateBtn.disabled = true;
+  }
+});
+
+specialCheck.addEventListener("change", function () {
+  if (
+    lowerCaseCheck.checked ||
+    upperCaseCheck.checked ||
+    numberCheck.checked ||
+    specialCheck.checked
+  ) {
+    allUnchecked = false;
+    generateBtn.disabled = false;
+  } else {
+    generateBtn.disabled = true;
+  }
+});
+
+// Set the title attribute of the button to the desired tooltip text
+generateBtn.title = "Please check at least one checkbox to enable this button";
+
+// Add an event listener to the button that will be called when the mouse enters the button
+generateBtn.addEventListener("mouseenter", function () {
+  // If the button is disabled, show the tooltip
+  if (generateBtn.disabled) {
+    button.setAttribute("data-tooltip", generateBtn.title);
+  }
+});
+
+// Add an event listener to the button that will be called when the mouse leaves the button
+generateBtn.addEventListener("mouseleave", function () {
+  // If the button is disabled, hide the tooltip
+  if (generateBtn.disabled) {
+    generateBtn.removeAttribute("data-tooltip");
+  }
+});
