@@ -132,17 +132,6 @@ hr {
   align-items: center;
   justify-content: center;
 }
-.container .checkmark:after {
-  left: 3px;
-  top: 0;
-  width: 5px;
-  height: 10px;
-  border: solid #2f3e53;
-  border-width: 0 3px 3px 0;
-  -webkit-transform: rotate(45deg);
-  -ms-transform: rotate(45deg);
-  transform: rotate(45deg);
-}
 
 .range {
   // margin: 0 0 0 30px;
@@ -231,6 +220,38 @@ hr {
 
 #checkbox-wrapper > label {
   margin: 8px 0;
+}
+
+.checkbox {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.checkbox-input {
+  display: none;
+}
+
+.checkbox__box {
+  width: 1.25em;
+  height: 1.25em;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 10px;
+  flex-shrink: 0;
+}
+
+.checkbox__box::after {
+  content: "\2714";
+  color: white;
+}
+
+.checkbox-input:checked + .checkbox__box {
+  background: #615d8f;
+  border-color: #615d8f;
 }
 
 //footer

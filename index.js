@@ -330,13 +330,16 @@ specialCheck.addEventListener("change", function () {
 });
 
 // Set the title attribute of the button to the desired tooltip text
-generateBtn.title = "Please check at least one checkbox to enable this button";
 
 // Add an event listener to the button that will be called when the mouse enters the button
 generateBtn.addEventListener("mouseenter", function () {
   // If the button is disabled, show the tooltip
   if (generateBtn.disabled) {
-    button.setAttribute("data-tooltip", generateBtn.title);
+    generateBtn.setAttribute(
+      "data-tooltip",
+      (generateBtn.title =
+        "Please check at least one checkbox to enable this button")
+    );
   }
 });
 
