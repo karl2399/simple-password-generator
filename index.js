@@ -112,6 +112,8 @@ let numberCheck = document.querySelector("#numberCharacterCheck");
 let specialCheck = document.querySelector("#specialCharacterCheck");
 const generateBtn = document.getElementById("generate-btn");
 
+generateBtn.disabled = true;
+
 // Get a list of all checkbox elements
 let checkboxes = document.querySelectorAll("input[type='checkbox']");
 // console.log(checkboxes);
