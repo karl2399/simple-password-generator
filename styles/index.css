@@ -119,7 +119,7 @@ h1 {
 }
 
 .btn:disabled {
-  background: #dddddd;
+  background: #d2c9c9;
 }
 
 hr {
@@ -140,6 +140,7 @@ hr {
 .custom-text {
   font-weight: 700;
   margin-bottom: 240px;
+  color: #10110c;
 }
 
 .range {
@@ -214,6 +215,7 @@ hr {
 
 #checkbox-wrapper > label {
   margin: 8px 0;
+  color: #10110c;
 }
 
 .checkbox {
