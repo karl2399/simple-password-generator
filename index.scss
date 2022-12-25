@@ -1,130 +1,432 @@
-$background: #0e0e0c;
-$primary: #10110c;
-$secondary: #d2c9c9;
+$background: #141414;
+$primary: white;
+$secondary: #5a5a5a;
+$tertiary: #908cf2;
+$button: #3dd8b1;
+$button-secondary: #111110;
+$cards: #1d1d1d;
 
-html {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  margin-left: auto;
-  margin-right: auto;
+@mixin gradient {
+  background: -moz-linear-gradient(top, #252525 0%, #1d1d1d 100%);
+  background: -webkit-linear-gradient(top, #252525 0%, #1d1d1d 100%);
+  background: linear-gradient(to bottom, #252525 0%, #1d1d1d 100%);
+}
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
   background-color: $background;
   font-family: "Noto Sans", sans-serif;
-  height: 560px;
-  // display: flex;
-  // justify-content: center;
-  // align-items: center;
-  // flex-direction: column;
-  // margin: 20px;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
 }
 
-/* .body {
-  
-  position: absolute;
-  left: 3216px;
-  top: 1380px;
-  width: 1200px;
-  height: 2393px;
-  
-} */
 // main wrapper
 #container {
-  background: white;
-  margin-left: auto;
-  margin-right: auto;
-  /* border-radius: 24px; */
-  /* padding: 2rem 3rem 2.5rem; */
+  background: $button-secondary;
   display: flex;
   flex-direction: column;
-  border-radius: 16px;
-  padding: 24px;
-  width: 20em;
-  height: 560px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 24px;
+  width: 36rem;
+  padding-block: 24px;
 }
 
 header {
-  background-color: white;
-  width: 100%;
+  border-radius: 0.5em;
+  @include gradient;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 12px;
+  width: 500px;
 }
 
 h1 {
   font-weight: 700;
   color: $primary;
   margin: 0;
-  font-size: 1.5rem;
-  text-align: left;
+  font-size: 1rem;
+  // text-align: left;
+}
+
+h1 > i {
+  color: $tertiary;
+  font-size: 1rem;
 }
 
 .description {
   text-align: left;
   font-size: 12px;
   color: $secondary;
-  margin: auto;
+  margin: 0;
+  line-height: 14px;
+}
+
+.password-wrapper {
+  border-radius: 0.5em;
+  text-align: center;
 }
 
 // password result
 #password-output {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: white;
+  display: inline-block;
+  // display: flex;
+  // justify-content: center;
+  // align-items: center;
+  background: transparent;
   color: $secondary;
-  border: 1px solid $secondary;
-  border-radius: 24px;
+  // border: 1px solid $secondary;
+  border-radius: 0.5em;
+  border: none;
   text-decoration: none;
-  font-size: 12px;
+  font-size: 1rem;
   font-weight: 700;
-  padding-block: 10px;
-  margin-top: 10%;
-  margin-left: auto;
-  margin-right: auto;
-  height: 40px;
-  width: 320px;
-  max-width: 350px;
+  height: 100px;
+  padding: 0;
+  text-align: center;
+
+  // max-width: 350px;
   // -webkit-box-shadow: 5px 5px 15px -4px #d2c9c9;
   // box-shadow: 5px 5px 15px -4px #d2c9c9;
-  text-align: center;
+  // text-align: center;
 }
 
 #password-output:hover {
-  color: #d2c9c9;
-  font-size: 0.8rem;
+  color: $button;
 }
 
 #password-output:active {
-  color: white;
-  background-color: #252623;
-  border: 1px solid #252623;
-  -webkit-box-shadow: 5px 4px 5px -4px #252623;
-  box-shadow: 5px 4px 5px -4px #252623;
+  color: $secondary;
+  // background-color: #252623;
+  // border: 1px solid #252623;
+  // -webkit-box-shadow: 5px 4px 5px -4px #252623;
+  // box-shadow: 5px 4px 5px -4px #252623;
 }
+
+// password length slider
+#input-range-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0.5em;
+  @include gradient;
+  padding: 12px;
+  width: 500px;
+}
+
+.custom-text {
+  // margin-bottom: 240px;
+  color: $tertiary;
+  font-size: 12px;
+}
+
+.range {
+  // margin: 0 0 0 30px;
+  height: 30px;
+  width: 120px;
+  // padding: 0 45px 0 45px;
+  padding-left: 28px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  // position: relative;
+}
+
+.range input {
+  -webkit-appearance: none;
+  // height: 3px;
+  background: $button-secondary;
+  border-radius: 0.5em;
+  outline: none;
+  border: none;
+  width: 400px;
+
+  // z-index: 2222;
+  // margin: 14px 0;
+}
+
+.range input::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 15px;
+  height: 15px;
+  border-radius: 8px;
+  background: white;
+  // border: 2px solid #252623;
+}
+
+.range input::-moz-range-thumb {
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  // background: #4adf86;
+  // border: 1px solid #4adf86;
+}
+
+.range input::-moz-range-progress {
+  background: #4adf86;
+  /* this progress background is only shown on Firefox */
+}
+
+#bubble {
+  display: inline-block;
+  position: relative;
+  color: $primary;
+  // line-height: 20px;
+  // border-radius: 48px;
+  // background: white;
+  // padding: 5px 10px;
+  width: 12px;
+  height: 15px;
+  margin-left: 8px;
+
+  // &:after {
+  //   position: absolute;
+  //   top: 8px;
+  //   left: -7px;
+  //   width: 0;
+  //   height: 0;
+  //   border-top: 7px solid transparent;
+  //   border-right: 7px solid $range-label-color;
+  //   border-bottom: 7px solid transparent;
+  //   content: "";
+  // }
+}
+
+#checkbox-wrapper {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 0.5em;
+  width: 524px;
+  margin: 12px 0;
+}
+
+#checkbox-wrapper > label {
+  font-size: 12px;
+  margin: 8px 0;
+  color: $primary;
+}
+
+.checkbox {
+  display: inline-flex;
+  align-items: center;
+  background-color: black;
+  border-radius: 24px;
+  padding: 12px;
+}
+
+.checkbox-input {
+  display: none;
+}
+
+.checkbox__box1 {
+  width: 1.25em;
+  height: 1.25em;
+  border: 1px solid #d2c9c9;
+  border-radius: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 10px;
+  flex-shrink: 0;
+  background: $button-secondary;
+  // -webkit-box-shadow: 5px 4px 5px -4px #d2c9c9;
+  // box-shadow: 5px 4px 5px -4px #d2c9c9;
+}
+
+.checkbox__box1::after {
+  content: "\2714";
+  color: $button-secondary;
+}
+
+.checkbox-input:checked + .checkbox__box1 {
+  background: $tertiary;
+  border-color: $tertiary;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+.checkbox__box2 {
+  width: 1.25em;
+  height: 1.25em;
+  border: 1px solid #d2c9c9;
+  border-radius: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 10px;
+  flex-shrink: 0;
+  background: $button-secondary;
+  // -webkit-box-shadow: 5px 4px 5px -4px #d2c9c9;
+  // box-shadow: 5px 4px 5px -4px #d2c9c9;
+}
+
+.checkbox__box2::after {
+  content: "\2714";
+  color: $button-secondary;
+}
+
+.checkbox-input:checked + .checkbox__box2 {
+  background: #eb666a;
+  border-color: #eb666a;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+.checkbox__box3 {
+  width: 1.25em;
+  height: 1.25em;
+  border: 1px solid #d2c9c9;
+  border-radius: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 10px;
+  flex-shrink: 0;
+  background: $button-secondary;
+  // -webkit-box-shadow: 5px 4px 5px -4px #d2c9c9;
+  // box-shadow: 5px 4px 5px -4px #d2c9c9;
+}
+
+.checkbox__box3::after {
+  content: "\2714";
+  color: $button-secondary;
+}
+
+.checkbox-input:checked + .checkbox__box3 {
+  background: $button;
+  border-color: $button;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+.checkbox__box4 {
+  width: 1.25em;
+  height: 1.25em;
+  border: 1px solid #d2c9c9;
+  border-radius: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 10px;
+  flex-shrink: 0;
+  background: $button-secondary;
+  // -webkit-box-shadow: 5px 4px 5px -4px #d2c9c9;
+  // box-shadow: 5px 4px 5px -4px #d2c9c9;
+}
+
+.checkbox__box4::after {
+  content: "\2714";
+  color: $button-secondary;
+}
+
+.checkbox-input:checked + .checkbox__box4 {
+  background: #f8af4c;
+  border-color: #f8af4c;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+// //footer
+// .footer {
+//   background-color: white;
+//   text-align: center;
+//   padding: 10px 0;
+//   position: absolute;
+//   bottom: 0;
+//   width: 100%;
+// }
+
+// .footer i {
+//   color: #615d8f;
+// }
 
 // generate password button
 .btn {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   height: 50px;
-  width: 320px;
+  width: 200px;
   font-family: "Noto Sans", sans-serif;
   color: white;
-  background-color: #10110c;
+  background-image: linear-gradient(
+    to right,
+    #da22ff 0%,
+    #9733ee 51%,
+    #da22ff 100%
+  );
   border: none;
   font-size: 12px;
   border-radius: 36px;
   padding: 1rem;
+  background-size: 200% auto;
 
-  margin-block: 10%;
-  animation: fadefromleft 900ms;
+  animation: fadefromleft 700ms;
+}
+
+.btn:hover::after {
+  /* Changing blur effect */
+  -webkit-filter: blur(4px);
+  -moz-filter: blur(4px);
+  -o-filter: blur(4px);
+  -ms-filter: blur(4px);
+  filter: blur(4px);
+
+  /* And change the style properties */
+  width: 100%;
+  bottom: -5px;
+  left: 0;
+}
+
+.btn:hover {
+  box-shadow: 0px 4px 20px 0px rgba(255, 255, 255, 0),
+    0px 4px 10px 0px rgba(0, 0, 0, 0.1), 0px 4px 5px 0px rgba(0, 0, 0, 0.2);
+  background-position: right center; /* change the direction of the change here */
+  color: #fff;
+  text-decoration: none;
 }
 
 .btn > i {
-  font-size: 1.25rem;
+  margin-left: 36px;
+  text-align: right;
+  font-size: 1rem;
 }
+
+.btn-grad {
+  background-image: linear-gradient(
+    to right,
+    #da22ff 0%,
+    #9733ee 51%,
+    #da22ff 100%
+  );
+  margin: 10px;
+  padding: 15px 45px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  box-shadow: 0 0 20px #eee;
+  border-radius: 10px;
+  display: block;
+}
+
+.btn-grad:hover {
+  background-position: right center; /* change the direction of the change here */
+  color: #fff;
+  text-decoration: none;
+}
+
 // .btn:hover {
 //   background: #252623;
 //   font-weight: 700;
@@ -142,176 +444,6 @@ h1 {
 
 .btn:disabled {
   background: $secondary;
-}
-
-// horizontal line
-hr {
-  border: 1px solid #615d8f;
-  width: 350px;
-}
-
-// password length slider
-#input-range-wrapper {
-  margin: 0;
-  padding: 0;
-  margin-top: 24px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  height: 120px;
-}
-
-.custom-text {
-  font-weight: 700;
-  margin-bottom: 240px;
-  color: $primary;
-}
-
-.range {
-  // margin: 0 0 0 30px;
-  background: #615d8f;
-  height: 30px;
-  width: 120px;
-  background: white;
-  border-radius: 1px;
-  // padding: 0 45px 0 45px;
-  padding-left: 28px;
-
-  text-align: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  // position: relative;
-}
-
-.range input {
-  -webkit-appearance: none;
-  // height: 3px;
-  background: #10110c;
-  border-radius: 24px;
-  outline: none;
-  border: none;
-  width: 400px;
-
-  // z-index: 2222;
-  // margin: 14px 0;
-}
-
-.range input::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  width: 15px;
-  height: 15px;
-  border-radius: 8px;
-  background: white;
-  border: 2px solid #252623;
-}
-
-.range input::-moz-range-thumb {
-  -webkit-appearance: none;
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  background: #4adf86;
-  border: 1px solid #4adf86;
-}
-
-.range input::-moz-range-progress {
-  background: #4adf86;
-  /* this progress background is only shown on Firefox */
-}
-
-#bubble {
-  display: inline-block;
-  position: relative;
-  color: #10110c;
-  border: 1px solid #d2c9c9;
-  // line-height: 20px;
-  border-radius: 48px;
-  background: white;
-  // padding: 5px 10px;
-  width: 12px;
-  height: 15px;
-  text-align: center;
-  padding: 5px 18px 10px 10px;
-  margin-left: 8px;
-  -webkit-box-shadow: 5px 4px 5px -4px #d2c9c9;
-  box-shadow: 5px 4px 5px -4px #d2c9c9;
-  border: 1px solid #d2c9c9;
-
-  // &:after {
-  //   position: absolute;
-  //   top: 8px;
-  //   left: -7px;
-  //   width: 0;
-  //   height: 0;
-  //   border-top: 7px solid transparent;
-  //   border-right: 7px solid $range-label-color;
-  //   border-bottom: 7px solid transparent;
-  //   content: "";
-  // }
-}
-
-#checkbox-wrapper {
-  display: flex;
-  flex-direction: column;
-  font-weight: 700;
-  color: #2f3e53;
-  justify-content: space-between;
-  margin-top: 20px;
-}
-
-#checkbox-wrapper > label {
-  margin: 8px 0;
-  color: $primary;
-}
-
-.checkbox {
-  display: inline-flex;
-  align-items: center;
-}
-
-.checkbox-input {
-  display: none;
-}
-
-.checkbox__box {
-  width: 1.5em;
-  height: 1.5em;
-  border: 1px solid #d2c9c9;
-  border-radius: 24px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-right: 10px;
-  flex-shrink: 0;
-  -webkit-box-shadow: 5px 4px 5px -4px #d2c9c9;
-  box-shadow: 5px 4px 5px -4px #d2c9c9;
-}
-
-.checkbox__box::after {
-  content: "\2714";
-  color: white;
-}
-
-.checkbox-input:checked + .checkbox__box {
-  background: #10110c;
-  border-color: #10110c;
-  -webkit-box-shadow: none;
-  box-shadow: none;
-}
-
-//footer
-.footer {
-  background-color: white;
-  text-align: center;
-  padding: 10px 0;
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-}
-
-.footer i {
-  color: #615d8f;
 }
 
 #snackbar {
@@ -332,35 +464,10 @@ hr {
 #snackbar.show {
   visibility: visible; /* Show the snackbar */
   /* Add animation: Take 0.5 seconds to fade in and out the snackbar.
-  However, delay the fade out process for 2.5 seconds */
-  -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
-  animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  However, delay the fade out process for 1 seconds */
+  -webkit-animation: fadein 0.5s, fadeout 0.2s 1s;
+  animation: fadein 0.5s, fadeout 0.2s 1s;
 }
-
-// #snackbar2 {
-//   visibility: hidden; /* Hidden by default. Visible on click */
-//   min-width: 250px; /* Set a default minimum width */
-//   margin-left: -125px; /* Divide value of min-width by 2 */
-//   background-color: #333; /* Black background color */
-//   color: #fff; /* White text color */
-//   text-align: center; /* Centered text */
-//   border-radius: 8px; /* Rounded borders */
-//   padding: 16px; /* Padding */
-//   position: fixed; /* Sit on top of the screen */
-//   z-index: 2; /* Add a z-index if needed */
-//   left: 50%; /* Center the snackbar */
-//   bottom: 30px; /* 30px from the bottom */
-// }
-
-// #snackbar2.show {
-//   visibility: visible; /* Show the snackbar */
-//   /* Add animation: Take 0.5 seconds to fade in and out the snackbar.
-//   However, delay the fade out process for 2.5 seconds */
-//   -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
-//   animation: fadein 0.5s, fadeout 0.5s 2.5s;
-// }
-
-/* Animations to fade the snackbar in and out */
 
 @keyframes check {
   100% {

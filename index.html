@@ -25,21 +25,20 @@
     <div id="container">
       <header>
         <h1>
-          Password Generator <i class="fa fa-lock" aria-hidden="true"></i>
+          PASSWORD GENERATOR <i class="fa fa-lock" aria-hidden="true"></i>
         </h1>
         <p class="description">
           Create strong and unique passwords for all of your accounts with just
           a few clicks
         </p>
       </header>
-      <div>
-        <div class="tooltip">
-          <button id="password-output" onclick="copyContent()"></button>
-        </div>
+
+      <div class="password-wrapper">
+        <button id="password-output" onclick="copyContent()"></button>
       </div>
 
       <div id="input-range-wrapper">
-        <div><label class="custom-text">Password Length</label></div>
+        <div><label class="custom-text">PASSWORD LENGTH</label></div>
 
         <div class="range">
           <input
@@ -63,8 +62,8 @@
             type="checkbox"
             class="checkbox-input"
           />
-          <div class="checkbox__box"></div>
-          Lower Case Characters
+          <div class="checkbox__box1"></div>
+          lower case
         </label>
         <label class="checkbox" for="upperCaseCharacterCheck">
           <input
@@ -72,8 +71,8 @@
             type="checkbox"
             class="checkbox-input"
           />
-          <div class="checkbox__box"></div>
-          Upper Case Characters
+          <div class="checkbox__box2"></div>
+          upper case
         </label>
         <label class="checkbox" for="numberCharacterCheck">
           <input
@@ -81,8 +80,8 @@
             type="checkbox"
             class="checkbox-input"
           />
-          <div class="checkbox__box"></div>
-          Numbers
+          <div class="checkbox__box3"></div>
+          numbers
         </label>
         <label class="checkbox" for="specialCharacterCheck">
           <input
@@ -90,12 +89,12 @@
             type="checkbox"
             class="checkbox-input"
           />
-          <div class="checkbox__box"></div>
-          Special Characters
+          <div class="checkbox__box4"></div>
+          special characters
         </label>
       </div>
 
-      <div>
+      <div class="footer">
         <button
           class="btn"
           id="generate-btn"
