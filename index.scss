@@ -27,14 +27,14 @@ html {
 }
 
 body {
-  background-color: white;
-  font-family: Poppins, sans-serif;
+  background-color: #0e0e0c;
+  font-family: "Noto Sans", sans-serif;
   height: 560px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  margin: 20px;
+  // display: flex;
+  // justify-content: center;
+  // align-items: center;
+  // flex-direction: column;
+  // margin: 20px;
 }
 
 /* .body {
@@ -48,14 +48,17 @@ body {
 } */
 // main wrapper
 #container {
-  background: #efefef;
+  background: white;
   margin-left: auto;
   margin-right: auto;
   /* border-radius: 24px; */
   /* padding: 2rem 3rem 2.5rem; */
   display: flex;
   flex-direction: column;
-  align-items: center;
+  border-radius: 16px;
+  padding: 24px;
+  width: 20em;
+  height: 560px;
 }
 
 header {
@@ -63,52 +66,93 @@ header {
   width: 100%;
 }
 
-header > h1 {
-  text-align: left;
-  font-weight: 800;
-  color: #615d8f;
-  text-align: center;
+h1 {
+  font-weight: 700;
+  color: #10110c;
   margin: 0;
-  font-size: 1.5em;
+  font-size: 1.5rem;
+  text-align: left;
+}
+
+.description {
+  text-align: left;
+  font-size: 12px;
+  color: #d2c9c9;
+  margin: auto;
 }
 
 // password result
 #password-output {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: white;
-  color: #2f2f2f;
-  border: none;
-  border-radius: 8px;
+  color: #d2c9c9;
+  border: 1px solid #d2c9c9;
+  border-radius: 24px;
   text-decoration: none;
-  cursor: pointer;
-  font-size: 1em;
+  font-size: 12px;
   font-weight: 700;
-  padding: 1.25em;
+  padding-block: 10px;
   margin-top: 10%;
   margin-left: auto;
   margin-right: auto;
-  width: 350px;
+  height: 40px;
+  width: 320px;
   max-width: 350px;
+  // -webkit-box-shadow: 5px 5px 15px -4px #d2c9c9;
+  // box-shadow: 5px 5px 15px -4px #d2c9c9;
+  text-align: center;
 }
 
 #password-output:hover {
-  background-color: #2f2f2f;
+  color: #d2c9c9;
+  font-size: 0.8rem;
+}
+
+#password-output:active {
   color: white;
+  background-color: #252623;
+  border: 1px solid #252623;
+  -webkit-box-shadow: 5px 4px 5px -4px #252623;
+  box-shadow: 5px 4px 5px -4px #252623;
 }
 
 // generate password button
 .btn {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 50px;
+  width: 320px;
+  font-family: "Noto Sans", sans-serif;
   color: white;
-  background-color: #615d8f;
-  align-items: left;
+  background-color: #10110c;
   border: none;
-  font-size: 1em;
-  font-weight: 700;
-  border-radius: 8px;
-  padding: 1em 1.5em;
+  font-size: 12px;
+  border-radius: 36px;
+  padding: 1rem;
+
   margin-block: 10%;
+  animation: fadefromleft 900ms;
 }
-.btn:hover {
-  background: #8763f3;
+
+.btn > i {
+  font-size: 1.25rem;
+}
+// .btn:hover {
+//   background: #252623;
+//   font-weight: 700;
+//   -webkit-box-shadow: 5px 4px 5px -4px #252623;
+//   box-shadow: 5px 4px 5px -4px #252623;
+//   border: 1px solid #252623;
+// }
+
+.btn:active {
+  background-color: #252623;
+  -webkit-box-shadow: 5px 4px 5px -4px #252623;
+  box-shadow: 5px 4px 5px -4px #252623;
+  border: 1px solid #252623;
 }
 
 .btn:disabled {
@@ -121,16 +165,20 @@ hr {
   width: 350px;
 }
 
-.custom-text {
-  font-weight: 700;
-}
-
 // password length slider
 #input-range-wrapper {
+  margin: 0;
+  padding: 0;
+  margin-top: 24px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  justify-content: space-around;
+  height: 120px;
+}
+
+.custom-text {
+  font-weight: 700;
+  margin-bottom: 240px;
 }
 
 .range {
@@ -139,8 +187,10 @@ hr {
   height: 30px;
   width: 120px;
   background: white;
-  border-radius: 8px;
-  padding: 0 45px 0 45px;
+  border-radius: 1px;
+  // padding: 0 45px 0 45px;
+  padding-left: 28px;
+
   text-align: center;
   display: flex;
   justify-content: center;
@@ -151,10 +201,12 @@ hr {
 .range input {
   -webkit-appearance: none;
   // height: 3px;
-  background: #615d8f;
+  background: #10110c;
   border-radius: 24px;
   outline: none;
   border: none;
+  width: 400px;
+
   // z-index: 2222;
   // margin: 14px 0;
 }
@@ -165,8 +217,7 @@ hr {
   height: 15px;
   border-radius: 8px;
   background: white;
-  border: 2px solid #615d8f;
-  cursor: pointer;
+  border: 2px solid #252623;
 }
 
 .range input::-moz-range-thumb {
@@ -176,7 +227,6 @@ hr {
   border-radius: 50%;
   background: #4adf86;
   border: 1px solid #4adf86;
-  cursor: pointer;
 }
 
 .range input::-moz-range-progress {
@@ -187,26 +237,32 @@ hr {
 #bubble {
   display: inline-block;
   position: relative;
-  width: $range-label-width;
-  color: $shade-0;
-  line-height: 20px;
+  color: #10110c;
+  border: 1px solid #d2c9c9;
+  // line-height: 20px;
+  border-radius: 48px;
+  background: white;
+  // padding: 5px 10px;
+  width: 12px;
+  height: 15px;
   text-align: center;
-  border-radius: 3px;
-  background: $range-label-color;
-  padding: 5px 10px;
+  padding: 5px 18px 10px 10px;
   margin-left: 8px;
+  -webkit-box-shadow: 5px 4px 5px -4px #d2c9c9;
+  box-shadow: 5px 4px 5px -4px #d2c9c9;
+  border: 1px solid #d2c9c9;
 
-  &:after {
-    position: absolute;
-    top: 8px;
-    left: -7px;
-    width: 0;
-    height: 0;
-    border-top: 7px solid transparent;
-    border-right: 7px solid $range-label-color;
-    border-bottom: 7px solid transparent;
-    content: "";
-  }
+  // &:after {
+  //   position: absolute;
+  //   top: 8px;
+  //   left: -7px;
+  //   width: 0;
+  //   height: 0;
+  //   border-top: 7px solid transparent;
+  //   border-right: 7px solid $range-label-color;
+  //   border-bottom: 7px solid transparent;
+  //   content: "";
+  // }
 }
 
 #checkbox-wrapper {
@@ -225,7 +281,6 @@ hr {
 .checkbox {
   display: inline-flex;
   align-items: center;
-  cursor: pointer;
 }
 
 .checkbox-input {
@@ -233,15 +288,17 @@ hr {
 }
 
 .checkbox__box {
-  width: 1.25em;
-  height: 1.25em;
-  border: 2px solid #ccc;
-  border-radius: 8px;
+  width: 1.5em;
+  height: 1.5em;
+  border: 1px solid #d2c9c9;
+  border-radius: 24px;
   display: flex;
   align-items: center;
   justify-content: center;
   margin-right: 10px;
   flex-shrink: 0;
+  -webkit-box-shadow: 5px 4px 5px -4px #d2c9c9;
+  box-shadow: 5px 4px 5px -4px #d2c9c9;
 }
 
 .checkbox__box::after {
@@ -250,8 +307,10 @@ hr {
 }
 
 .checkbox-input:checked + .checkbox__box {
-  background: #615d8f;
-  border-color: #615d8f;
+  background: #10110c;
+  border-color: #10110c;
+  -webkit-box-shadow: none;
+  box-shadow: none;
 }
 
 //footer
@@ -291,28 +350,28 @@ hr {
   animation: fadein 0.5s, fadeout 0.5s 2.5s;
 }
 
-#snackbar2 {
-  visibility: hidden; /* Hidden by default. Visible on click */
-  min-width: 250px; /* Set a default minimum width */
-  margin-left: -125px; /* Divide value of min-width by 2 */
-  background-color: #333; /* Black background color */
-  color: #fff; /* White text color */
-  text-align: center; /* Centered text */
-  border-radius: 8px; /* Rounded borders */
-  padding: 16px; /* Padding */
-  position: fixed; /* Sit on top of the screen */
-  z-index: 2; /* Add a z-index if needed */
-  left: 50%; /* Center the snackbar */
-  bottom: 30px; /* 30px from the bottom */
-}
+// #snackbar2 {
+//   visibility: hidden; /* Hidden by default. Visible on click */
+//   min-width: 250px; /* Set a default minimum width */
+//   margin-left: -125px; /* Divide value of min-width by 2 */
+//   background-color: #333; /* Black background color */
+//   color: #fff; /* White text color */
+//   text-align: center; /* Centered text */
+//   border-radius: 8px; /* Rounded borders */
+//   padding: 16px; /* Padding */
+//   position: fixed; /* Sit on top of the screen */
+//   z-index: 2; /* Add a z-index if needed */
+//   left: 50%; /* Center the snackbar */
+//   bottom: 30px; /* 30px from the bottom */
+// }
 
-#snackbar2.show {
-  visibility: visible; /* Show the snackbar */
-  /* Add animation: Take 0.5 seconds to fade in and out the snackbar.
-  However, delay the fade out process for 2.5 seconds */
-  -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
-  animation: fadein 0.5s, fadeout 0.5s 2.5s;
-}
+// #snackbar2.show {
+//   visibility: visible; /* Show the snackbar */
+//   /* Add animation: Take 0.5 seconds to fade in and out the snackbar.
+//   However, delay the fade out process for 2.5 seconds */
+//   -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+//   animation: fadein 0.5s, fadeout 0.5s 2.5s;
+// }
 
 /* Animations to fade the snackbar in and out */
 
@@ -363,5 +422,19 @@ hr {
   to {
     bottom: 0;
     opacity: 0;
+  }
+}
+
+@keyframes fadefromleft {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
   }
 }

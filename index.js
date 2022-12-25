@@ -110,9 +110,9 @@ let lowerCaseCheck = document.querySelector("#lowerCaseCharacterCheck");
 let upperCaseCheck = document.querySelector("#upperCaseCharacterCheck");
 let numberCheck = document.querySelector("#numberCharacterCheck");
 let specialCheck = document.querySelector("#specialCharacterCheck");
-const generateBtn = document.getElementById("generate-btn");
+let generateBtn = document.getElementById("generate-btn");
 
-generateBtn.disabled = true;
+// generateBtn.disabled = true;
 
 // Get a list of all checkbox elements
 let checkboxes = document.querySelectorAll("input[type='checkbox']");
@@ -121,10 +121,14 @@ let checkboxes = document.querySelectorAll("input[type='checkbox']");
 // Initialize a flag to track whether all checkboxes are unchecked
 let allUnchecked = true;
 
-// If the flag is still true, it means all checkboxes are unchecked, so disable the button
-// if (allUnchecked) {
-//   generateBtn.disabled = true;
-// }
+function myFunction() {
+  console.log("button clicked");
+  if (lowerCaseCheck.checked) {
+    generateBtn.disabled = false;
+    lowerCaseCheck.checked;
+    console.log(lowerCaseCheck.checked);
+  }
+}
 
 function newPassword() {
   // checkCheckbox();
@@ -330,23 +334,18 @@ specialCheck.addEventListener("change", function () {
 });
 
 // Set the title attribute of the button to the desired tooltip text
+generateBtn.setAttribute("title", "This button is currently disabled");
 
-// Add an event listener to the button that will be called when the mouse enters the button
-generateBtn.addEventListener("mouseenter", function () {
+// Add an event listener for the mouseover event
+generateBtn.addEventListener("mouseover", () => {
   // If the button is disabled, show the tooltip
   if (generateBtn.disabled) {
-    generateBtn.setAttribute(
-      "data-tooltip",
-      (generateBtn.title =
-        "Please check at least one checkbox to enable this button")
-    );
+    generateBtn.setAttribute("title", "This button is currently disabled");
   }
 });
 
-// Add an event listener to the button that will be called when the mouse leaves the button
-generateBtn.addEventListener("mouseleave", function () {
-  // If the button is disabled, hide the tooltip
-  if (generateBtn.disabled) {
-    generateBtn.removeAttribute("data-tooltip");
-  }
+// Add an event listener for the mouseout event
+generateBtn.addEventListener("mouseout", () => {
+  // Remove the tooltip when the mouse leaves the button
+  generateBtn.removeAttribute("title");
 });

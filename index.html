@@ -4,13 +4,16 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
     <script
       src="https://kit.fontawesome.com/debfe1e3b7.js"
       crossorigin="anonymous"
     ></script>
-    <style>
-      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;800&display=swap");
-    </style>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
@@ -24,22 +27,20 @@
         <h1>
           Password Generator <i class="fa fa-lock" aria-hidden="true"></i>
         </h1>
+        <p class="description">
+          Create strong and unique passwords for all of your accounts with just
+          a few clicks
+        </p>
       </header>
       <div>
         <div class="tooltip">
           <button id="password-output" onclick="copyContent()"></button>
         </div>
       </div>
-      <div>
-        <button class="btn" id="generate-btn" onclick="newPassword()">
-          New Password
-        </button>
-      </div>
-
-      <hr />
 
       <div id="input-range-wrapper">
-        <label class="custom-text">Password Length</label><br />
+        <div><label class="custom-text">Password Length</label></div>
+
         <div class="range">
           <input
             type="range"
@@ -49,7 +50,9 @@
             value="8"
             step="1"
           />
-          <label for="rangeInput" id="bubble" class="">8</label>
+          <div class="bubble-wrapper">
+            <label for="rangeInput" id="bubble" class="">8</label>
+          </div>
         </div>
       </div>
 
@@ -91,12 +94,26 @@
           Special Characters
         </label>
       </div>
+
+      <div>
+        <button
+          class="btn"
+          id="generate-btn"
+          disabled="true"
+          onclick="newPassword()"
+          autofocus
+        >
+          Generate
+          <i class="fa fa-arrow-right" aria-hidden="true"></i>
+        </button>
+      </div>
     </div>
+
     <div id="snackbar">📝 Copied to clipboard!</div>
-    <div id="snackbar2">🛑 Check at least one checkbox.</div>
-    <div class="footer">
+    <!-- <div id="snackbar2">🛑 Check at least one checkbox.</div> -->
+    <!-- <div class="footer">
       <i class="fa fa-github-square fa-2xl"></i>
-    </div>
+    </div> -->
     <script src="index.js"></script>
   </body>
 </html>
