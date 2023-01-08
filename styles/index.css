@@ -1,46 +1,40 @@
 @charset "UTF-8";
-* {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body,
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+  padding: 0;
 }
 
 body {
   background-color: #141414;
   font-family: "Noto Sans", sans-serif;
-  height: 100vh;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0;
-}
-
-#container {
-  background: #111110;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  border-radius: 24px;
-  width: 36rem;
-  padding-block: 24px;
+  padding: 1rem;
+  max-width: 100%;
 }
 
 header {
-  border-radius: 0.5em;
+  border-radius: 0.5rem;
   background: linear-gradient(to bottom, #252525 0%, #1d1d1d 100%);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
   padding: 12px;
-  width: 500px;
+}
+@media (min-width: 513px) {
+  header {
+    width: 481px;
+  }
 }
 
 h1 {
   font-weight: 700;
   color: white;
-  margin: 0;
   font-size: 1rem;
 }
 
@@ -50,23 +44,31 @@ h1 > i {
 }
 
 .description {
-  text-align: left;
   font-size: 12px;
   color: #5a5a5a;
-  margin: 0;
   line-height: 14px;
 }
 
 .password-wrapper {
-  border-radius: 0.5em;
+  max-width: 36rem;
+  min-width: 141px;
+  border-radius: 0.5rem;
   text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@media (min-width: 513px) {
+  .password-wrapper {
+    width: 481px;
+  }
 }
 
 #password-output {
   display: inline-block;
   background: transparent;
   color: #5a5a5a;
-  border-radius: 0.5em;
+  border-radius: 0.5rem;
   border: none;
   text-decoration: none;
   font-size: 1rem;
@@ -86,36 +88,51 @@ h1 > i {
 
 #input-range-wrapper {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
-  border-radius: 0.5em;
+  border-radius: 0.5rem;
   background: linear-gradient(to bottom, #252525 0%, #1d1d1d 100%);
+  max-width: 36rem;
+  min-width: 141px;
   padding: 12px;
-  width: 500px;
+}
+@media (min-width: 513px) {
+  #input-range-wrapper {
+    width: 481px;
+  }
+}
+
+.input-range-wrapper__title {
+  display: flex;
+  width: 30%;
 }
 
 .custom-text {
   color: #908cf2;
   font-size: 12px;
+  line-height: 0.5px;
 }
 
 .range {
-  height: 30px;
-  width: 120px;
-  padding-left: 28px;
   text-align: center;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
+  width: 60%;
+}
+
+.range__slider {
+  width: 60%;
+  display: flex;
 }
 
 .range input {
   -webkit-appearance: none;
   background: #111110;
-  border-radius: 0.5em;
+  border-radius: 0.5rem;
   outline: none;
   border: none;
-  width: 400px;
+  width: 100%;
 }
 
 .range input::-webkit-slider-thumb {
@@ -144,21 +161,25 @@ h1 > i {
   color: white;
   width: 12px;
   height: 15px;
-  margin-left: 8px;
+  margin-left: 20px;
 }
 
 #checkbox-wrapper {
   display: flex;
-  justify-content: space-around;
-  align-items: center;
-  border-radius: 0.5em;
-  width: 524px;
-  margin: 12px 0;
+  flex-wrap: wrap;
+  border-radius: 0.5rem;
+  max-width: 36rem;
+  padding: 6px;
+  margin-block: 1rem;
+}
+@media (min-width: 513px) {
+  #checkbox-wrapper {
+    width: 481px;
+  }
 }
 
 #checkbox-wrapper > label {
   font-size: 12px;
-  margin: 8px 0;
   color: white;
 }
 
@@ -166,8 +187,10 @@ h1 > i {
   display: inline-flex;
   align-items: center;
   background-color: black;
-  border-radius: 24px;
+  border-radius: 0.5rem;
   padding: 12px;
+  margin-block: 6px;
+  width: 100%;
 }
 
 .checkbox-input {
@@ -175,8 +198,8 @@ h1 > i {
 }
 
 .checkbox__box1 {
-  width: 1.25em;
-  height: 1.25em;
+  width: 1.25rem;
+  height: 1.25rem;
   border: 1px solid #d2c9c9;
   border-radius: 24px;
   display: flex;
@@ -199,8 +222,8 @@ h1 > i {
 }
 
 .checkbox__box2 {
-  width: 1.25em;
-  height: 1.25em;
+  width: 1.25rem;
+  height: 1.25rem;
   border: 1px solid #d2c9c9;
   border-radius: 24px;
   display: flex;
@@ -223,8 +246,8 @@ h1 > i {
 }
 
 .checkbox__box3 {
-  width: 1.25em;
-  height: 1.25em;
+  width: 1.25rem;
+  height: 1.25rem;
   border: 1px solid #d2c9c9;
   border-radius: 24px;
   display: flex;
@@ -247,8 +270,8 @@ h1 > i {
 }
 
 .checkbox__box4 {
-  width: 1.25em;
-  height: 1.25em;
+  width: 1.25rem;
+  height: 1.25rem;
   border: 1px solid #d2c9c9;
   border-radius: 24px;
   display: flex;
@@ -272,20 +295,24 @@ h1 > i {
 
 .btn {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  height: 50px;
-  width: 200px;
+  width: 100%;
   font-family: "Noto Sans", sans-serif;
   color: white;
   background-image: linear-gradient(to right, #da22ff 0%, #9733ee 51%, #da22ff 100%);
   border: none;
   font-size: 12px;
-  border-radius: 36px;
+  border-radius: 1rem;
   padding: 1rem;
   background-size: 200% auto;
   -webkit-animation: fadefromleft 700ms;
           animation: fadefromleft 700ms;
+}
+@media (min-width: 513px) {
+  .btn {
+    width: 481px;
+  }
 }
 
 .btn:hover::after {
@@ -362,8 +389,8 @@ h1 > i {
   visibility: visible; /* Show the snackbar */
   /* Add animation: Take 0.5 seconds to fade in and out the snackbar.
   However, delay the fade out process for 1 seconds */
-  -webkit-animation: fadein 0.5s, fadeout 0.2s 1s;
-  animation: fadein 0.5s, fadeout 0.2s 1s;
+  -webkit-animation: fadein 0.5s;
+          animation: fadein 0.5s;
 }
 
 @-webkit-keyframes check {
@@ -435,5 +462,13 @@ h1 > i {
   to {
     opacity: 1;
     transform: translateZ(0);
+  }
+}
+@media (min-width: 525px) {
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
   }
 }/*# sourceMappingURL=index.css.map */

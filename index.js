@@ -334,18 +334,18 @@ specialCheck.addEventListener("change", function () {
 });
 
 // Set the title attribute of the button to the desired tooltip text
-generateBtn.setAttribute("title", "This button is currently disabled");
+// generateBtn.setAttribute("title", "This button is currently disabled");
 
 // Add an event listener for the mouseover event
-generateBtn.addEventListener("mouseover", () => {
-  // If the button is disabled, show the tooltip
-  if (generateBtn.disabled) {
-    generateBtn.setAttribute("title", "This button is currently disabled");
-  }
-});
+// generateBtn.addEventListener("mouseover", () => {
+//   // If the button is disabled, show the tooltip
+//   if (generateBtn.disabled) {
+//     generateBtn.setAttribute("title", "This button is currently disabled");
+//   }
+// });
 
 // Add an event listener for the mouseout event
-generateBtn.addEventListener("mouseout", () => {
-  // Remove the tooltip when the mouse leaves the button
-  generateBtn.removeAttribute("title");
-});
+// generateBtn.addEventListener("mouseout", () => {
+//   // Remove the tooltip when the mouse leaves the button
+//   generateBtn.removeAttribute("title");
+// });

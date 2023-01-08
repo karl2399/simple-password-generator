@@ -22,25 +22,25 @@
     <title>Simple Password Generator</title>
   </head>
   <body>
-    <div id="container">
-      <header>
-        <h1>
-          PASSWORD GENERATOR <i class="fa fa-lock" aria-hidden="true"></i>
-        </h1>
-        <p class="description">
-          Create strong and unique passwords for all of your accounts with just
-          a few clicks
-        </p>
-      </header>
+    <header>
+      <h1>PASSWORD GENERATOR <i class="fa fa-lock" aria-hidden="true"></i></h1>
+      <p class="description">
+        Create strong and unique passwords for all of your accounts with just a
+        few clicks
+      </p>
+    </header>
 
-      <div class="password-wrapper">
-        <button id="password-output" onclick="copyContent()"></button>
+    <div class="password-wrapper">
+      <button id="password-output" onclick="copyContent()"></button>
+    </div>
+
+    <div id="input-range-wrapper">
+      <div class="input-range-wrapper__title">
+        <label class="custom-text">LENGTH</label>
       </div>
 
-      <div id="input-range-wrapper">
-        <div><label class="custom-text">PASSWORD LENGTH</label></div>
-
-        <div class="range">
+      <div class="range">
+        <div class="range__slider">
           <input
             type="range"
             id="rangeInput"
@@ -49,63 +49,66 @@
             value="8"
             step="1"
           />
-          <div class="bubble-wrapper">
-            <label for="rangeInput" id="bubble" class="">8</label>
-          </div>
+        </div>
+        <div class="bubble-wrapper">
+          <label for="rangeInput" id="bubble" class="">8</label>
         </div>
       </div>
+    </div>
 
-      <div id="checkbox-wrapper">
-        <label class="checkbox" for="lowerCaseCharacterCheck">
-          <input
-            id="lowerCaseCharacterCheck"
-            type="checkbox"
-            class="checkbox-input"
-          />
-          <div class="checkbox__box1"></div>
-          lower case
-        </label>
-        <label class="checkbox" for="upperCaseCharacterCheck">
-          <input
-            id="upperCaseCharacterCheck"
-            type="checkbox"
-            class="checkbox-input"
-          />
-          <div class="checkbox__box2"></div>
-          upper case
-        </label>
-        <label class="checkbox" for="numberCharacterCheck">
-          <input
-            id="numberCharacterCheck"
-            type="checkbox"
-            class="checkbox-input"
-          />
-          <div class="checkbox__box3"></div>
-          numbers
-        </label>
-        <label class="checkbox" for="specialCharacterCheck">
-          <input
-            id="specialCharacterCheck"
-            type="checkbox"
-            class="checkbox-input"
-          />
-          <div class="checkbox__box4"></div>
-          special characters
-        </label>
-      </div>
+    <div id="checkbox-wrapper">
+      <label class="checkbox" for="lowerCaseCharacterCheck">
+        <input
+          id="lowerCaseCharacterCheck"
+          type="checkbox"
+          class="checkbox-input"
+        />
+        <div class="checkbox__box1"></div>
+        lower case letters (a - z)
+      </label>
 
-      <div class="footer">
-        <button
-          class="btn"
-          id="generate-btn"
-          disabled="true"
-          onclick="newPassword()"
-          autofocus
-        >
-          Generate
-          <i class="fa fa-arrow-right" aria-hidden="true"></i>
-        </button>
-      </div>
+      <label class="checkbox" for="upperCaseCharacterCheck">
+        <input
+          id="upperCaseCharacterCheck"
+          type="checkbox"
+          class="checkbox-input"
+        />
+        <div class="checkbox__box2"></div>
+        upper case letters (A - Z)
+      </label>
+
+      <label class="checkbox" for="numberCharacterCheck">
+        <input
+          id="numberCharacterCheck"
+          type="checkbox"
+          class="checkbox-input"
+        />
+        <div class="checkbox__box3"></div>
+        numbers (0 - 9)
+      </label>
+
+      <label class="checkbox" for="specialCharacterCheck">
+        <input
+          id="specialCharacterCheck"
+          type="checkbox"
+          class="checkbox-input"
+        />
+        <div class="checkbox__box4"></div>
+        special characters (!@#$%^)
+      </label>
+    </div>
+
+    <div class="footer">
+      <button
+        class="btn"
+        id="generate-btn"
+        disabled="true"
+        onclick="newPassword()"
+        autofocus
+      >
+        Generate
+        <i class="fa fa-arrow-right" aria-hidden="true"></i>
+      </button>
     </div>
 
     <div id="snackbar">📝 Copied to clipboard!</div>
